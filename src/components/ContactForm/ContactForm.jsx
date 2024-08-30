@@ -17,7 +17,10 @@ const ContactForm = () => {
       .required("Required Number"),
   });
 
-  const INITIALS_VALUES = { name: "", number: "" };
+  const INITIALS_VALUES = {
+    name: "",
+    number: "",
+  };
 
   const dispatch = useDispatch();
 

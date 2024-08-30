@@ -1,8 +1,9 @@
 .filter_wrapper {
-  padding: 16px;
+  padding: 16px 8px;
   width: 504px;
   border: 1px solid rgb(60, 60, 60);
   border-radius: 10px;
+  margin-bottom: 16px;
 }
 .search {
   width: 304px;
