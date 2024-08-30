@@ -5,7 +5,7 @@ import { selectContacts } from "../../redux/contactsSlice";
 
 const getFilteredList = (contactList, contactsFilter) => {
   return contactList.filter((item) =>
-    item.contactName.toLowerCase().includes(contactsFilter.toLowerCase())
+    item.name.toLowerCase().includes(contactsFilter.toLowerCase())
   );
 };
 
@@ -20,8 +20,8 @@ const ContactList = () => {
         return (
           <li key={contact.id} className={css.card}>
             <Contact
-              name={contact.contactName}
-              number={contact.contactNumber}
+              name={contact.name}
+              number={contact.number}
               id={contact.id}
             />
           </li>

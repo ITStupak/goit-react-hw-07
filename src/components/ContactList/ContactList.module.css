@@ -16,7 +16,7 @@
   background-color: rgba(194, 220, 236, 0.5);
   width: calc((100% - 48px) / 3);
   min-width: 304px;
-  transition: border cubic-bezier(0, 4, 1, 4) 250ms;
+  transition: border linear 250ms, box-shadow linear 250ms;
 }
 .card:hover {
   border: 1px solid blue;
