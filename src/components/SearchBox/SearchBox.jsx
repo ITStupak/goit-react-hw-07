@@ -14,19 +14,21 @@ const SearchBox = () => {
   };
 
   return (
-    <div className={css.search}>
-      <label className={css["search-label"]}>
-        <span>Find contacts by name:</span>
-        <input
-          className={css["search-input"]}
-          type="text"
-          id={filterId}
-          placeholder="Enter your characters..."
-          autoComplete="off"
-          value={filter}
-          onChange={handleSearch}
-        />
-      </label>
+    <div className={css.filter_wrapper}>
+      <div className={css.search}>
+        <label className={css["search-label"]}>
+          <span>Find contacts by name:</span>
+          <input
+            className={css["search-input"]}
+            type="text"
+            id={filterId}
+            placeholder="Enter your characters..."
+            autoComplete="off"
+            value={filter}
+            onChange={handleSearch}
+          />
+        </label>
+      </div>
     </div>
   );
 };
