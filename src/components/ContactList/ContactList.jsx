@@ -1,19 +1,16 @@
 import Contact from "../Contact/Contact";
 import css from "./ContactList.module.css";
 import { useSelector } from "react-redux";
-import { selectContacts } from "../../redux/contactsSlice";
-import { selectNameFilter } from "../../redux/filtersSlice";
-
-const getFilteredList = (contactList, contactsFilter) => {
-  return contactList.filter((item) =>
-    item.name.toLowerCase().includes(contactsFilter.toLowerCase())
-  );
-};
+import {
+  selectFilteredContacts,
+  selectIsLoading,
+  selectError,
+} from "../../redux/contactsSlice";
 
 const ContactList = () => {
-  const contactList = useSelector(selectContacts);
-  const contactsFilter = useSelector(selectNameFilter);
-  const filteredContacts = getFilteredList(contactList, contactsFilter);
+  const filteredContacts = useSelector(selectFilteredContacts);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   return (
     <ul className={css["card-list"]}>
@@ -28,6 +25,8 @@ const ContactList = () => {
           </li>
         );
       })}
+      {isLoading && "Please wait, Phonebook is loading..."}
+      {error && `${error}`}
     </ul>
   );
 };

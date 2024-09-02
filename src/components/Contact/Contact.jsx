@@ -1,14 +1,13 @@
 import { FaUser } from "react-icons/fa6";
 import { FaPhone } from "react-icons/fa6";
 import css from "./Contact.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteContact } from "../../redux/contactsOps";
+import { selectIsLoading } from "../../redux/contactsSlice";
 
 const Contact = ({ id, name, number }) => {
   const dispatch = useDispatch();
-  const onDeleteContact = (contactId) => {
-    dispatch(deleteContact(contactId));
-  };
+  const isLoading = useSelector(selectIsLoading);
 
   return (
     <>
@@ -25,9 +24,10 @@ const Contact = ({ id, name, number }) => {
         </li>
       </ul>
       <button
+        disabled={isLoading}
         type="button"
         className={css["card-btn"]}
-        onClick={() => onDeleteContact(id)}
+        onClick={() => dispatch(deleteContact(id))}
       >
         Delete&nbsp;❌
       </button>
